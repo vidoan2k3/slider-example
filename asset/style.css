@@ -1,0 +1,139 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+#main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+
+.slider {
+    margin: auto;
+    width: 1000px;
+    height: 500px;
+    position: relative;
+}
+
+
+.slider-container {
+    width: 100%;
+    background-color: rgb(22, 8, 8);
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+
+img {
+    width: 100%;
+    display: none;
+}
+
+img.active {
+    display: block;
+    transition: all 0.3s;
+    animation: Opacity ease-in-out 0.3s;
+}
+
+
+.btn {
+    width: 50px;
+    background-color: #ccc;
+    height: 50px;
+    display: flex;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1000;
+}
+
+
+.btn i {
+    display: flex;
+    font-size: 35px;
+    margin: auto;
+}
+
+.btn i::before {
+    margin: auto;
+    color: white;
+}
+
+.pre-btn {
+    left: 0;
+    transform: translate(-50%,-50%);
+    top: 50%;
+}
+
+.pre-btn:hover {
+    transition: all 0.4s;
+    left: -15px;
+    transform: translate(-50%,-50%);
+    top: 50%;
+}
+
+.next-btn {
+    right: 0;
+    top: 50%;
+    transform: translate(50%,-50%);
+}
+
+
+.next-btn:hover {
+    transition: all 0.4s;    
+    right: -15px;
+    top: 50%;
+    transform: translate(50%,-50%);
+}
+
+
+.dot {
+    color: white;
+    display: inline-block;
+    margin: 0 8px;
+}
+
+
+.dot-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 10000;
+}
+
+.dot.active i::before{
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+}
+
+
+
+@keyframes Opacity {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
