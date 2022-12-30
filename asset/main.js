@@ -46,6 +46,11 @@ var preImg = function () {
         showImg (currentIndex);
 }
 
-dotEvent();
-nextBtn.onclick = nextImg;
+var autoChange = setInterval(nextImg, 8000);
+
+nextBtn.onclick = () => {
+    nextImg();
+    clearInterval (autoChange);
+    autoChange = setInterval(nextImg, 8000);
+}
 preBtn.onclick = preImg;
