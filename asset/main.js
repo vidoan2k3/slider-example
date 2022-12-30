@@ -46,10 +46,26 @@ var preImg = function () {
         showImg (currentIndex);
 }
 
-var autoChange = function () {
-    window.setInterval (nextImg, 6000);
-}
-autoChange ();
+var autoChange = setInterval (nextImg, 6000);
+
 dotEvent();
-nextBtn.onclick = nextImg;
+nextBtn.onclick = () => {
+    nextImg ();
+    clearInterval (autoChange);
+    var nextChange = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve ();
+        }, 10000);
+    })
+
+    nextChange
+        .then (() => {
+            console.log ('true');
+        }) 
+        .then (() => {
+            autoChange = setInterval(() => {
+                nextImg();
+            }, 6000);            
+        })
+};
 preBtn.onclick = preImg;
