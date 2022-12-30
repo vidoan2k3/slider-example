@@ -53,4 +53,9 @@ nextBtn.onclick = () => {
     clearInterval (autoChange);
     autoChange = setInterval(nextImg, 8000);
 }
-preBtn.onclick = preImg;
+preBtn.onclick = () => {
+    preImg();
+    clearInterval (autoChange);
+    autoChange = setInterval(nextImg, 8000);
+} 
+
